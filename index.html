@@ -3,9 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SElam yeni cesur yeni dünya</title>
+    <title>Kullanıcı Girişi</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    
+    <div class="matrix-bg">
+        <canvas id="matrix"></canvas>
+    </div>
+    <div class="login-container">
+        <form action="login.php" method="post">
+            <h2>Kullanıcı Girişi</h2>
+            <label for="username">Kullanıcı Adı:</label>
+            <input type="text" id="username" name="username" required>
+            <label for="password">Şifre:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Giriş Yap</button>
+        </form>
+        <div class="create-account">
+            <a href="register.html">Hesabın yok mu? Hemen bir tane oluştur</a>
+        </div>
+    </div>
+    <script src="matrix.js"></script>
 </body>
 </html>
