@@ -1,27 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anasayfa</title>
+    <title>Kayıt Oluşturun</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="styles.css">
 
 </head>
 <body>
-
-    <!-- Üst menü çubuğu -->
-    <div class="menu-bar">
-        <a href="login.html">Giriş</a>
-        <a href="kayitol.html">Kullanıcı Oluştur</a>
-    </div>
-
-    <!-- İçerik -->
-    <div class="content">
-        <h1>Hoş Geldiniz!</h1>
-        <p>Bu internet sitesi sayesinde ,Notlarınızı güvenli şekilde depolayabileceksiniz.</p>
-        <p>Site kullanımı tamamen ücretsizdir.Herhangi bir başlangıç veya kullanım bedeli yoktur.</p>
-    </div>
-
     <div class="matrix">
         <span>t</span><span>Z</span><span>Ş</span><span>g</span><span>m</span><span>İ</span><span>V</span><span>r</span><span>k</span><span>W</span><span>ö</span><span>N</span><span>Ü</span><span>Q</span><span>A</span><span>T</span><span>Ğ</span><span>ü</span><span>C</span><span>f</span><span>S</span><span>s</span><span>P</span><span>L</span><span>y</span><span>o</span><span>u</span><span>j</span><span>X</span><span>B</span><span>K</span><span>İ</span><span>O</span><span>E</span><span>R</span><span>D</span><span>q</span><span>H</span><span>c</span><span>ğ</span><span>ü</span><span>v</span><span>G</span><span>Y</span><span>z</span><span>b</span><span>J</span><span>i</span><span>n</span><span>Ö</span><span>x</span><span>h</span><span>Ç</span><span>M</span><span>A</span><span>l</span><span>u</span>
         <span>t</span><span>Z</span><span>Ş</span><span>g</span><span>m</span><span>İ</span><span>V</span><span>r</span><span>k</span><span>W</span><span>ö</span><span>N</span><span>Ü</span><span>Q</span><span>A</span><span>T</span><span>Ğ</span><span>ü</span><span>C</span><span>f</span><span>S</span><span>s</span><span>P</span><span>L</span><span>y</span><span>o</span><span>u</span><span>j</span><span>X</span><span>B</span><span>K</span><span>İ</span><span>O</span><span>E</span><span>R</span><span>D</span><span>q</span><span>H</span><span>c</span><span>ğ</span><span>ü</span><span>v</span><span>G</span><span>Y</span><span>z</span><span>b</span><span>J</span><span>i</span><span>n</span><span>Ö</span><span>x</span><span>h</span><span>Ç</span><span>M</span><span>A</span><span>l</span><span>u</span>
@@ -34,8 +21,62 @@
         <span>t</span><span>Z</span><span>Ş</span><span>g</span><span>m</span><span>İ</span><span>V</span><span>r</span><span>k</span><span>W</span><span>ö</span><span>N</span><span>Ü</span><span>Q</span><span>A</span><span>T</span><span>Ğ</span><span>ü</span><span>C</span><span>f</span><span>S</span><span>s</span><span>P</span><span>L</span><span>y</span><span>o</span><span>u</span><span>j</span><span>X</span><span>B</span><span>K</span><span>İ</span><span>O</span><span>E</span><span>R</span><span>D</span><span>q</span><span>H</span><span>c</span><span>ğ</span><span>ü</span><span>v</span><span>G</span><span>Y</span><span>z</span><span>b</span><span>J</span><span>i</span><span>n</span><span>Ö</span><span>x</span><span>h</span><span>Ç</span><span>M</span><span>A</span><span>l</span><span>u</span>
 
     </div>
-    
-    
-</body>
+    <h2>Kullanıcı Kayıt Formu</h2>
+    <form id="kayit_formu">
+        Kullanıcı Adı: <input type="text" id="username"><br><br>
+        E-posta: <input type="text" id="email"><br><br>
+        Şifre: <input type="password" id="password"><br><br>
+        <input type="submit" value="Kaydet">
+    </form>
 
+    <div id="sonuc"></div>
+
+    <script>
+        $(document).ready(function(){
+            $('#kayit_formu').submit(function(e){
+                e.preventDefault(); // Formun normal submit işlemini engelle
+                
+                var username = $('#username').val();
+                var email = $('#email').val();
+                var password = $('#password').val();
+
+                if (username.length < 3 || username.length > 30) {
+                    $('#sonuc').html("Kullanıcı adı en az 3, en fazla 30 karakter olmalıdır.");
+                    $('#sonuc').fadeIn().delay(2000).fadeOut(); // Animasyon ekle
+                    return;
+                }
+
+                var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
+                    $('#sonuc').html("Geçerli bir e-posta adresi giriniz.");
+                    $('#sonuc').fadeIn().delay(2000).fadeOut(); // Animasyon ekle
+                    return;
+                }
+
+                if (password.length < 8) {
+                    $('#sonuc').html("Şifre en az 8 karakter olmalıdır.");
+                    $('#sonuc').fadeIn().delay(2000).fadeOut(); // Animasyon ekle
+                    return;
+                }
+
+                $.ajax({
+                    type: 'POST',
+                    url: 'kayitol.php',
+                    data: {
+                        username: username,
+                        email: email,
+                        password: password
+                    },
+                    success: function(response){
+                        $('#sonuc').html(response);
+                        $('#sonuc').fadeIn().delay(2000).fadeOut(); // Animasyon ekle
+                        if (response.includes("Başarılı")) {
+                            window.location.href = "kayitol_basari.html";
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
 </html>
