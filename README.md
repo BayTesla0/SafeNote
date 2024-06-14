@@ -39,5 +39,31 @@ Bu sayfada yukardan aşşağı sırasıyla menu çubuğu ,not alma kısmı ve no
   Buradan kullanıcı metnişni girebilecek .Girilen metin html ise bu çalıştırılmıyacak hale getirilecek.Uzun metinlerin sayfayı boznması önlenecek.
   Metin girildikten sonra alta bulunan butona tıklandığında bu metin uzunluğuna göre uyghun halde şifrelenip şu anın tarihini ve saatini de ekleyip veri tabanının "notlar" tablosuna saklanacak.
   Burada bu metinni bu kullanıcıya ait olduğunu göstermek için oturum kimlipğindeki "id" kullancıı id "foreing key" olarak "notlar" tablosunda saklanacak.
-  Son olarak alt kısımda "Tarih ve Saat" ve "M""    
+ Yazılan Notlar
+  Son olarak alt kısımda "Tarih ve Saat" ve "Not Metni" adında sutunlar olacak.
+  Burada metinler ve tarih sıralanacak.Metinni uzunluğuna göre satırlar boyuna genişleyebilecek.Enine genişlemesine engel olunacak.
+  Sayfada en eski notlar en aşşağıda en yeni notlar en üstte olacak şekilde sıralanacak.
+  Kaydırma çubuğu ile diğeer notlara erişilebilecek.
+
+  
 İmha Sayfası
+bu sayfaya gidildiğinde kullanıcıdan doğrulama için şifre ve kullancııc adı talep edilecek.
+Girilen şifre ve kullanıcı adı ,oturumun açık olduğu kullanıcının hesabı ile karşşılaştırılacak.
+Ayrıca kullanıcıdan bir altta bulunan resimdeki metni yazması istenecek.
+Bu onay metni ile ile imha onaylanacak ve kontrol aşamasına geçilecek.
+Eğer kullanıcı adı ve şifre oturum kilğiyle olana karşılaştırma veya metin onaayı başarısız olursa kullanıcıya bildirilip ,hata sayısı bir arttırılacak.
+Hata 5 kere tekrar edilirse kullancıı kimliği boşaltılıp, kullanıcı giriş sayfasına bir "allert" ile yönlendirilecek.
+Ama giriş işlemleri ve onay metni başarılı bir şekilde geröçekleşirse kullanıcın idsinini bağlı olduğu "notlar" tablosundaki tüm veriler imha edilecek.
+
+Bir sonraki sürümlerde ne yapılacak
+
+Burada bir sonraki sürümlerde yapmak istediğim şeylerden biraz bahsetmek istiyorum.Çünkü benim üzerinde çalıştığım ve kendi kullanımım için oluşturduğum bir proje aslında.
+Şifrelere gerekli metinlere güvenilir birt şekilde ulaşmak için bunu kullanmak istiyorum.
+Öncelikle googlenin captchasını kullanmayı düşünüyorum, daha önce googlenini captcha servisi için hesap oluşturup api bağlantıların sağladım ama tam çalışamn bir hale getiremedim.Captcha kutusu hata veriyordu.
+Bu captcha ile veritabanının aşırı ddolmasını önleyeciğimi düşünüyorum.
+
+Gerek olmadığından kullancı slme işlemi eklemedim ama bunu da eklemeyi düşünüyorum.Burada kukllancıı notları silinecek ama kullancıı adı ve mail bir daha seçilmemesi için giriş yapılamıyacak hale getirilecek.
+Bunun için veritabanına bir sutunun eklenmesi gerekecek.
+
+Mail doğrulaması yapmak için gerekli girdinin bir ksımını veritabanına sağladım.Kullanıcı kayıt olurken maiili istendi.Bu maili bir servis kullanarak doğrulamasını sağlayacak bir güncelleme yapacam.
+Veri tabanın bu kullanıcının mailini doğruladığına dair bir bitin eklenmesi gerekecek.
