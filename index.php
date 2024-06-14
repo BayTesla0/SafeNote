@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yumurta Şeklinde Neon Çizgiler</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+        }
+
+        .neon-lines {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 0;
+        }
+
+        .neon-lines svg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .line1 {
+            animation: rotate1 40s linear infinite;
+        }
+
+        .line2 {
+            animation: rotate2 80s linear infinite;
+        }
+
+        .line3 {
+            animation: rotate3 120s linear infinite;
+        }
+
+        @keyframes rotate1 {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes rotate2 {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes rotate3 {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            position: relative;
+            z-index: 1;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            width: 300px;
+        }
+
+        .button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 10px;
+            text-decoration: none;
+            color: white;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            width: 120px;
+            height: 120px;
+            transition: transform 0.2s;
+            z-index: 2;
+        }
+
+        .button img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+
+        .button:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="neon-lines">
+        <svg viewBox="0 0 200 200" class="line1">
+            <ellipse cx="100" cy="100" rx="250" ry="90" stroke="lime" stroke-width="2" fill="none"/>
+        </svg>
+        <svg viewBox="0 0 200 200" class="line2">
+            <ellipse cx="100" cy="100" rx="300" ry="90" stroke="lime" stroke-width="2" fill="none"/>
+        </svg>
+        <svg viewBox="0 0 200 200" class="line3">
+            <ellipse cx="100" cy="100" rx="300" ry="90" stroke="lime" stroke-width="2" fill="none"/>
+        </svg>
+    </div>
+    <div class="container">
+        <div class="button-container">
+            <a href="https://github.com/BayTesla0/SafeNote" class="button">
+                <img src="github.jpg" alt="Proje Githubı">
+                Proje Githubı
+            </a>
+            <a href="baytesla0.github.io/SafeNote/main.html" class="button">
+                <img src="logo.jpeg" alt="Projeyi Dene">
+                Projeyi Dene
+            </a>
+        </div>
+    </div>
+</body>
+</html>
