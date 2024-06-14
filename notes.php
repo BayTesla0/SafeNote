@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'private/config.php';
+require_once 'config.php';
 
 // notlarını almak için sorgu
 $query = "SELECT not_tarihi, not_metni FROM notlar WHERE kullanici_id = ?";

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'private/config.php';
+require_once 'config.php';
 
 if (!isset($_SESSION['kullanici_idsiii']) || $_SESSION['kullanici_idsiii'] === null || $_SESSION['kullanici_idsiii'] === 0) {
     header("Location: login.html");

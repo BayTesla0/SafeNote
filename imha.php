@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'private/config.php';
+require_once 'config.php';
 
 $key = 'aaaassssddddffffaaaassssddddffff';
 

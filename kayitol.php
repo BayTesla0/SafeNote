@@ -1,6 +1,6 @@
 
     <?php
-    require_once 'private/config.php';
+    require_once 'config.php';
 
     $username = $_POST['username'];
     $email = $_POST['email'];

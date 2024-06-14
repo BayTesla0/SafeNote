@@ -2,7 +2,7 @@
 session_start();
 ob_start();
 
-require_once 'private/config.php';
+require_once 'config.php';
 
 // Kullanıcı adı ve şifre 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
