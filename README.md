@@ -67,3 +67,6 @@ Bunun için veritabanına bir sutunun eklenmesi gerekecek.
 
 Mail doğrulaması yapmak için gerekli girdinin bir ksımını veritabanına sağladım.Kullanıcı kayıt olurken maiili istendi.Bu maili bir servis kullanarak doğrulamasını sağlayacak bir güncelleme yapacam.
 Veri tabanın bu kullanıcının mailini doğruladığına dair bir bitin eklenmesi gerekecek.
+
+https://baytesla0.github.io/SafeNote/
+
