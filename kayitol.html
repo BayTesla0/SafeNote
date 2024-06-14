@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kayıt Oluşturun</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <style>/* Genel stil ayarları */
+    <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
@@ -15,7 +15,7 @@
             position: relative;
         }
         
-        /* Matrix efekti */
+        /* Matrix  */
         @keyframes matrix {
             0% { transform: translateY(0); }
             100% { transform: translateY(100vh); }
@@ -61,8 +61,8 @@
         .matrix span:nth-child(18) { left: 84%; animation-delay: -8s; }
         .matrix span:nth-child(19) { left: 93%; animation-delay: -9s; }
         .matrix span:nth-child(20) { left: 103%; animation-delay: -10s; }
-        /* Üst menü çubuğu */
-        .menu-bar {    text-align: center; /* Başlıkları ortala */
+       
+        .menu-bar {    text-align: center;
         
             background-color: #333;
             overflow: hidden;
@@ -73,7 +73,7 @@
         .menu-bar a {
             color: white;
             padding: 14px 20px;
-            text-align: center; /* Başlıkları ortala */
+            text-align: center; 
         
             text-decoration: none;
             display: inline-block;
@@ -125,9 +125,8 @@
             text-align: center;
             color: red;
         }
-        /* H2 Başlıklar */
         h2 {
-            text-align: center; /* H2 başlıkları ortala */
+            text-align: center; 
         }</style>
 </head>
 <body>
@@ -156,7 +155,7 @@
     <script>
         $(document).ready(function(){
             $('#kayit_formu').submit(function(e){
-                e.preventDefault(); // Formun normal submit işlemini engelle
+                e.preventDefault(); //submit işlemini engelle
                 
                 var username = $('#username').val();
                 var email = $('#email').val();
@@ -164,20 +163,20 @@
 
                 if (username.length < 3 || username.length > 30) {
                     $('#sonuc').html("Kullanıcı adı en az 3, en fazla 30 karakter olmalıdır.");
-                    $('#sonuc').fadeIn().delay(2000).fadeOut(); // Animasyon ekle
+                    $('#sonuc').fadeIn().delay(2000).fadeOut(); // Animasyon 
                     return;
                 }
 
                 var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!emailRegex.test(email)) {
                     $('#sonuc').html("Geçerli bir e-posta adresi giriniz.");
-                    $('#sonuc').fadeIn().delay(2000).fadeOut(); // Animasyon ekle
+                    $('#sonuc').fadeIn().delay(2000).fadeOut(); // Animasyon 
                     return;
                 }
 
                 if (password.length < 8) {
                     $('#sonuc').html("Şifre en az 8 karakter olmalıdır.");
-                    $('#sonuc').fadeIn().delay(2000).fadeOut(); // Animasyon ekle
+                    $('#sonuc').fadeIn().delay(2000).fadeOut(); // Animasyon 
                     return;
                 }
 
@@ -191,7 +190,7 @@
                     },
                     success: function(response){
                         $('#sonuc').html(response);
-                        $('#sonuc').fadeIn().delay(2000).fadeOut(); // Animasyon ekle
+                        $('#sonuc').fadeIn().delay(2000).fadeOut(); // Animasyon 
                         if (response.includes("Başarılı")) {
                             window.location.href = "kayitol_basari.html";
                         }

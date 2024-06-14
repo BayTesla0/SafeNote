@@ -2,17 +2,15 @@
 session_start();
 ob_start();
 
-// Veritabanı bağlantısını dahil etme
-// Veritabanı bilgileri
 require_once 'private/config.php';
 
-// Kullanıcı adı ve şifre kontrolü
+// Kullanıcı adı ve şifre 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Kullanıcı adı ve şifre
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Kullanıcı adı ve şifre kontrolü
+    //şifre 
     $sql = "SELECT * FROM kullanicilar WHERE kullanici_adi = '$username'";
     $result = $conn->query($sql);
 
@@ -21,28 +19,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stored_password = $row['sifre'];
         $_SESSION['kullanici_idsiii'] = $row['id'];
 
-        // Kullanıcının girdiği şifreyi kontrol edin
+        // şifreyi kontrol edin
         if (password_verify($password, $stored_password)) {
             // Şifre doğruysa, başarılı giriş
             if ($username === 'admin') {
-               // header("Location: basari.php"); // Admin paneline yönlendir
+               // header("Location: basari.php"); // Admin paneline 
 
-           header("Location: anasayfa.php"); // Admin paneline yönlendir
+           header("Location: anasayfa.php"); // Admin paneli
                 exit;
             } else {
-               // header("Location: basari.php"); // Admin paneline yönlendir
+               // header("Location: basari.php"); // Admin paneline 
 
-             header("Location: anasayfa.php"); //   için hoş geldiniz sayfasına yönlendir
+             header("Location: anasayfa.php"); 
                 exit;
             }
         } else {
             // Hatalı giriş
-            echo '<script>alert("Kullanıcı adı veya .şifre yanlış."); window.location="login.html";</script>'; // Hatalı giriş durumunda uyarı mesajı ve tekrar giriş sayfasına yönlendirme
-            exit;
+            echo '<script>alert("Kullanıcı adı veya .şifre yanlış."); window.location="login.html";</script>'; // Hatalı giriş
         }
     } else {
         // Kullanıcı adı bulunamadı
-        echo '<script>alert(".Kullanıcı adı veya şifre yanlış."); window.location="login.html";</script>'; // Hatalı giriş durumunda uyarı mesajı ve tekrar giriş sayfasına yönlendirme
+        echo '<script>alert(".Kullanıcı adı veya şifre yanlış."); window.location="login.html";</script>'; // Hatalı giriş 
         exit;
     }
 }

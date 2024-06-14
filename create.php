@@ -2,7 +2,6 @@
     require_once 'private/config.php';
 
 
-// Kullanıcılar tablosunu oluşturma
 $sql = "ALTER TABLE notlar ADD imha_kodu VARCHAR(255);
 
 ";
@@ -28,6 +27,5 @@ if ($conn->query($sql) === TRUE) {
     echo "Tablo oluşturma hatası: " . $conn->error;
 }
 
-// MySQL bağlantısını kapatma
 $conn->close();
 ?>

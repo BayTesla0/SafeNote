@@ -19,18 +19,18 @@ function decrypt($data, $key) {
     return openssl_decrypt($encrypteddata, 'aes-256-cbc', $key, 0, $iv);
 }
 
-// Yanlış giriş sayısını kontrol etmek için session değişkeni
+// Yanlış giriş
 if (!isset($_SESSION['wrong_attempts'])) {
     $_SESSION['wrong_attempts'] = 0;
 }
 
-// Kullanıcı adı ve şifre kontrolü
+// Kullanıcı adı ve şifre 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
     $imha_onay = $_POST['imha_onay'];
 
-    // Kullanıcı adı kontrolü ve şifre doğrulama
+    //  doğrulama
     $stmt = $conn->prepare("SELECT * FROM kullanicilar WHERE kullanici_adi = ?");
     $stmt->bind_param("s", $username);
     $stmt->execute();
@@ -73,7 +73,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->close();
 }
 
-// Veritabanı bağlantısını kapatma
 $conn->close();
 ?>
 

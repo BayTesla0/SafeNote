@@ -2,7 +2,7 @@
 session_start();
 require_once 'private/config.php';
 
-// Kullanıcının notlarını almak için sorgu
+// notlarını almak için sorgu
 $query = "SELECT not_tarihi, not_metni FROM notlar WHERE kullanici_id = ?";
 
 if ($stmt = $conn->prepare($query)) {
@@ -29,6 +29,5 @@ if ($stmt = $conn->prepare($query)) {
     echo "Sorgu hazırlanamadı.";
 }
 
-// Veritabanı bağlantısını kapat
 $conn->close();
 ?>
