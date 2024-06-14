@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Yönlendir</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+
 </head>
 <body>
 
